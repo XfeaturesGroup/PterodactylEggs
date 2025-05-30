@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "Базовое яйцо для Gate Proxy (Minecraft).",
+    "author": "kingnoype, XfeaturesGroup"
+  },
+  "info": {
+    "name": "Gate Proxy",
+    "descripton": "Легковесный и быстрый прокси для Minecraft, написанный на Go.",
+    "version": "1.0.0",
+    "features": [
+      "minecraft"
+    ]
+  },
+  "limits": {
+    "memory": 512,
+    "swap": 0,
+    "disk": 2048,
+    "io": 500,
+    "cpu": 100
+  },
+  "file_denylist": [],
+  "startup": {
+    "done": "Listening for incoming connections",
+    "user_interaction": [],
+    "stop": "^C",
+    "wrapper": null
+  },
+  "install": {
+    "script": "#!/bin/bash\napt update\napt install -y wget curl git\nwget -O /tmp/install.sh https://raw.githubusercontent.com/XfeaturesGroup/PterodactylEggs/main/nests/minecraft/gate-proxy/install.sh || curl -o /tmp/install.sh https://raw.githubusercontent.com/XfeaturesGroup/PterodactylEggs/main/nests/minecraft/gate-proxy/install.sh\nbash /tmp/install.sh",
+    "container": "debian:bookworm-slim",
+    "entrypoint": "bash"
+  },
+  "scripts": {
+    "installation": {
+      "container": "debian:bookworm-slim",
+      "entrypoint": "bash"
+    },
+    "configuration": {
+      "container": "debian:bookworm-slim",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Gate Proxy Version (Latest/Specific Tag)",
+      "description": "Версия Gate Proxy для загрузки (например, 'latest' или 'v0.1.0').",
+      "env_variable": "GATE_VERSION",
+      "default_value": "latest",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string"
+    },
+    {
+      "name": "Server Port",
+      "description": "Порт, на котором Gate будет слушать входящие соединения.",
+      "env_variable": "SERVER_PORT",
+      "default_value": "25565",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1024,65535"
+    },
+    {
+      "name": "Default Backend Address",
+      "description": "IP-адрес:порт бэкенд-сервера Minecraft по умолчанию (например, 172.18.0.2:25565).",
+      "env_variable": "DEFAULT_BACKEND",
+      "default_value": "172.18.0.2:25565",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string"
+    }
+  ]
+}
