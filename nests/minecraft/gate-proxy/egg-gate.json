@@ -1,12 +1,12 @@
 {
   "meta": {
     "version": "1.0.0",
-    "description": "Базовое яйцо для Gate Proxy (Minecraft).",
+    "description": "Base Egg for Gate Proxy (Minecraft).",
     "author": "kingnoype, XfeaturesGroup"
   },
   "info": {
     "name": "Gate Proxy",
-    "descripton": "Легковесный и быстрый прокси для Minecraft, написанный на Go.",
+    "description": "A lightweight and fast proxy for Minecraft, written in Go.",
     "version": "1.0.0",
     "features": [
       "minecraft"
@@ -44,7 +44,7 @@
   "variables": [
     {
       "name": "Gate Proxy Version (Latest/Specific Tag)",
-      "description": "Версия Gate Proxy для загрузки (например, 'latest' или 'v0.1.0').",
+      "description": "Version of Gate Proxy to download (e.g., 'latest' or 'v0.1.0').",
       "env_variable": "GATE_VERSION",
       "default_value": "latest",
       "user_viewable": true,
@@ -53,7 +53,7 @@
     },
     {
       "name": "Server Port",
-      "description": "Порт, на котором Gate будет слушать входящие соединения.",
+      "description": "The port Gate will listen on for incoming connections.",
       "env_variable": "SERVER_PORT",
       "default_value": "25565",
       "user_viewable": true,
@@ -62,7 +62,7 @@
     },
     {
       "name": "Default Backend Address",
-      "description": "IP-адрес:порт бэкенд-сервера Minecraft по умолчанию (например, 172.18.0.2:25565).",
+      "description": "IP:port of the default Minecraft backend server (e.g., 172.18.0.2:25565).",
       "env_variable": "DEFAULT_BACKEND",
       "default_value": "172.18.0.2:25565",
       "user_viewable": true,
